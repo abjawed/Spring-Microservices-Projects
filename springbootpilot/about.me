@@ -11,3 +11,21 @@
 #       - Returns the names of the days.
 
 # Note: This is a simple application with hard-coded values in the controller classes.
+
+## To run the Images follow the below steps.
+#1. Check which and how many images are currently running
+	docker images
+#2. Navigate to the project root directory and execute the following command to build the images
+	docker build -t springbootpilot .
+#3. Login to docker hub
+	docker login
+#4. Rebuild the images with the tag name specified in DockerHub
+	docker tag springbootpilot:0.0.1-SNAPSHOT abjawed/springbootpilot
+#5. Push the image to Docker Hub
+	docker push abjawed/springbootpilot
+#6. Remove the existing images before pulling from Docker Hub to ensure the latest build
+	docker rmi abjawed/springbootpilot
+#7. Pull the image from Docker Hub
+	docker pull abjawed/springbootpilot:latest
+#8. Run the image locally, and the application will be accessible at port 9020:
+	docker run -p 9020:9020 abjawed/springbootpilot
